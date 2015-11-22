@@ -10,7 +10,7 @@ FROM debian:wheezy
 
 MAINTAINER Daniele Torelli <me@mdtorelli.it>
 
-# Install XeTeX, Biber and extras
+# Install XeTeX and Biber
 RUN \
     echo "===> Update repositories" && \
     apt-get update && \
@@ -22,10 +22,6 @@ RUN \
     \
     echo "===> Install Biber" && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes biber && \
-    \
-    \
-    echo "===> Install extras" && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes texlive-math-extra && \
     \
     \
     echo "===> Clean up" && \
