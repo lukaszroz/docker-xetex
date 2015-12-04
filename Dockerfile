@@ -8,7 +8,7 @@
 # Pull base image
 FROM debian:wheezy
 
-MAINTAINER Daniele Torelli <me@mdtorelli.it>
+MAINTAINER Daniele Torelli <me AT mdtorelli DOT it>
 
 # Install XeTeX and Biber
 RUN \
