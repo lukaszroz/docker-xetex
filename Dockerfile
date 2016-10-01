@@ -1,27 +1,29 @@
 #
 # XeTeX on Debian 7 (Wheezy)
-#
-# URL: https://github.com/danieletorelli/docker-xetex
+# slim container
+# 
+# URL: https://github.com/lukaszroz/docker-xetex-slim
 # Version: 1
 #
 
 # Pull base image
 FROM debian:wheezy
 
-MAINTAINER Daniele Torelli <me AT mdtorelli DOT it>
+MAINTAINER Lukasz Rozycki <docker AT lukaszr DOT com>
 
-# Install XeTeX and Biber
+# Install XeTeX 
 RUN \
     echo "===> Update repositories" && \
     apt-get update && \
     \
     \
     echo "===> Install XeTeX" && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes texlive-xetex && \
-    \
-    \
-    echo "===> Install Biber" && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes biber && \
+    DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends install -y --force-yes \
+        texlive-xetex \
+        texlive-latex-recommended \
+        latex-xcolor \
+        texlive-latex-extra \
+	lmodern && \
     \
     \
     echo "===> Clean up" && \
