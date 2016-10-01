@@ -1,10 +1,10 @@
-Docker-XeTeX
+Docker-XeTeX-slim
 ============
 
 
 ## Summary
 
-Repository name in Docker Hub: **[danieletorelli/xetex](https://registry.hub.docker.com/u/danieletorelli/xetex/)**
+Repository name in Docker Hub: **[lukaszr/xetex-slim](https://registry.hub.docker.com/u/lukaszr/xetex-slim/)**
 This repository contains a minimalistic dockerized [XeTeX](http://tug.org/xetex/)
 setup, published to the public [Docker Hub](https://registry.hub.docker.com/) via
 **automated build**.
@@ -16,7 +16,6 @@ This docker image contains the following software stack:
 
 - OS: Debian 7 (Wheezy) (built from [debian:wheezy](https://registry.hub.docker.com/_/debian/))
 - XeTeX
-- Biber
 
 ### Dependencies
 
@@ -26,32 +25,27 @@ This docker image contains the following software stack:
 ## Installation
 
    ```
-   $ docker pull danieletorelli/xetex
+   $ docker pull lukaszr/xetex-slim
    ```
 
 
 ## Usage
 
-### Run `xetex`
-
-   ```
-   $ docker run --rm danieletorelli/xetex
-   ```
 
 ### Run `xelatex`
 
    ```
-   $ docker run --rm danieletorelli/xetex xelatex
+   $ docker run --rm lukaszr/xetex-slim
    ```
 
-### Run `biber`
+### To use local workspace and preserve files owner
 
    ```
-   $ docker run -it --rm danieletorelli/xetex biber
+   $ docker run -v `pwd`:/tmp -w "/tmp" -u `id -u $USER`:`id -g $USER` --rm lukaszr/xetex-slim
    ```
 
 ### Dig into container
 
    ```
-   $ docker run -it danieletorelli/xetex bash
+   $ docker run -it lukaszr/xetex-slim bash
    ```
